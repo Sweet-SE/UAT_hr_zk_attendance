@@ -35,7 +35,7 @@ class BiometricDeviceDetails(models.Model):
 
     def _get_connection_object(self):
         try:
-            return ZK(self.device_ip, port=self.port_number, timeout=30, password=0, ommit_ping=False)
+            return ZK(self.device_ip, port=self.port_number, timeout=180, password=0, ommit_ping=False)
         except NameError:
             raise UserError(_("Pyzk module not found. Please install it with 'pip3 install pyzk'."))
 
